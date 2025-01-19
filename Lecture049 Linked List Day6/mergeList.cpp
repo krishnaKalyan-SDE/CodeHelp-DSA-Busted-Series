@@ -42,17 +42,26 @@ void solve(Node<int>* first, Node<int>* second) {
             curr2 = next2;
         }
         else {
-            
+            curr1=next1;
+            next1=next1->next;
+            if(next1==NULL){
+                curr1->next=curr2;
+                return first;   
+            }
         }
         
         
     }
     
-    
+    return first;
 }
 
 Node<int>* sortTwoLists(Node<int>* first, Node<int>* second)
 {
+    if(first->next==NULL){
+        first->next=second;
+        return first;
+    }
     if(first == NULL)
         return second;
     
